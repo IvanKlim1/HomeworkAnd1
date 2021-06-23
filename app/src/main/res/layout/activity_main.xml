@@ -79,8 +79,8 @@
         android:id="@+id/barrierTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="like,likes"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="content"
         />
 
     <ImageButton
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/barrierTwo"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24"
@@ -97,10 +97,10 @@
         android:id="@+id/likes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/barrierTwo"
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintTop_toTopOf="@+id/barrierTwo"
         app:layout_constraintStart_toEndOf="@+id/like"
         tools:text="@sample/posts.json/data/like" />
 
@@ -111,8 +111,8 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:background="@android:color/transparent"
+        android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintTop_toTopOf="@+id/barrierTwo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/likes"
         app:srcCompat="@drawable/ic_baseline_share_24"
         tools:ignore="VectorDrawableCompat" />
@@ -120,18 +120,18 @@
         android:id="@+id/reposts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/barrierTwo"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrierTwo"
         app:layout_constraintStart_toEndOf="@+id/repost"
         tools:text="@sample/posts.json/data/repost" />
     <TextView
         android:id="@+id/viewings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintTop_toTopOf="@+id/barrierTwo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="@sample/posts.json/data/viewing" />
 
@@ -142,8 +142,8 @@
         android:background="@android:color/transparent"
         android:layout_marginStart="@dimen/common_viewing"
         android:layout_marginEnd="@dimen/common_viewing"
+        android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintTop_toTopOf="@+id/barrierTwo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewings"
         app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
         tools:ignore="VectorDrawableCompat" />
