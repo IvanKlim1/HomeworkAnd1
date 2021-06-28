@@ -94,7 +94,7 @@
         app:srcCompat="@drawable/ic_baseline_favorite_border_24"
         tools:ignore="VectorDrawableCompat" />
     <TextView
-        android:id="@+id/likes"
+        android:id="@+id/likeCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -113,11 +113,11 @@
         android:background="@android:color/transparent"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintTop_toTopOf="@+id/barrierTwo"
-        app:layout_constraintStart_toEndOf="@+id/likes"
+        app:layout_constraintStart_toEndOf="@+id/likeCount"
         app:srcCompat="@drawable/ic_baseline_share_24"
         tools:ignore="VectorDrawableCompat" />
     <TextView
-        android:id="@+id/reposts"
+        android:id="@+id/repostCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
@@ -127,7 +127,7 @@
         app:layout_constraintStart_toEndOf="@+id/repost"
         tools:text="@sample/posts.json/data/repost" />
     <TextView
-        android:id="@+id/viewings"
+        android:id="@+id/viewingCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
@@ -144,7 +144,7 @@
         android:layout_marginEnd="@dimen/common_viewing"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintTop_toTopOf="@+id/barrierTwo"
-        app:layout_constraintEnd_toStartOf="@+id/viewings"
+        app:layout_constraintEnd_toStartOf="@+id/viewingCount"
         app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
         tools:ignore="VectorDrawableCompat" />
 
