@@ -18,6 +18,7 @@ interface Callback{
 
 class PostsAdapter(private val callBack: Callback) :
     RecyclerView.Adapter<PostViewHolder>() {
+
     var list = emptyList<Post>()
         set(value) {
             field = value
@@ -52,10 +53,10 @@ class PostViewHolder(
             likeCount.text = countFormat(post.likes)
             repostCount.text = countFormat(post.reposts)
             like.setOnClickListener {
-                onLikeListener
+                onLikeListener.liked(post)
             }
             repost.setOnClickListener {
-                onLikeListener
+                onLikeListener.reposted(post)
             }
         }
     }
