@@ -2,6 +2,7 @@ package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +15,10 @@ private val df = DecimalFormat("#.#")
 private val dff = DecimalFormat("#")
 
 interface ExtensionForAdapterFunctions{
-    fun liked(post:Post)
-    fun reposted(post:Post)
+    fun liked(post:Post){}
+    fun reposted(post:Post){}
+    fun onEdit(post: Post) {}
+    fun onRemove(post: Post) {}
 }
 class PostDiffCallback: DiffUtil.ItemCallback<Post>(){
 override fun areItemsTheSame(oldItem:Post,newItem:Post):Boolean{
@@ -43,7 +46,7 @@ class PostsAdapter(private val callBack: ExtensionForAdapterFunctions) :
 
 class PostViewHolder(
     private val binding: CardPostBinding,
-    private val onLikeListener: ExtensionForAdapterFunctions
+    private val onInteractionListener: ExtensionForAdapterFunctions
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         binding.apply {
@@ -53,13 +56,32 @@ class PostViewHolder(
             like.setImageResource(
                 if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
             )
+            menu.setOnClickListener {
+                PopupMenu(it.context, it).apply {
+                    inflate(R.menu.options_post)
+                    setOnMenuItemClickListener { item ->
+                        when (item.itemId) {
+                            R.id.remove -> {
+                                onInteractionListener.onRemove(post)
+                                true
+                            }
+                            R.id.edit -> {
+                                onInteractionListener.onEdit(post)
+                                true
+                            }
+
+                            else -> false
+                        }
+                    }
+                }.show()
+            }
             likeCount.text = countFormat(post.likes)
             repostCount.text = countFormat(post.reposts)
             like.setOnClickListener {
-                onLikeListener.liked(post)
+                onInteractionListener.liked(post)
             }
             repost.setOnClickListener {
-                onLikeListener.reposted(post)
+                onInteractionListener.reposted(post)
             }
         }
     }

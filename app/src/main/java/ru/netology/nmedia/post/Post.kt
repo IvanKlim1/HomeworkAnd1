@@ -8,5 +8,5 @@ data class Post(
     var likes: Int = 0,
     var reposts: Int = 0,
     val likedByMe: Boolean ,
-    val repostByMe: Boolean
+    val repostByMe: Boolean,
 )
